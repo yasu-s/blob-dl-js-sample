@@ -1,41 +1,41 @@
-# Overview
+# 概要
 
-This is a minimum sample to save the text entered in textarea as a file.
+textareaで入力した文字列をファイルで保存するための最低限のサンプルです。
 
-# System requirements
+# 実行環境
 
 * Node.js - 10.x
 * Yarn - 1.12.x
 * lite-server - 2.5.x
 
-# Operation check
+# 動作確認
 
-## 1. Download Sample
+## 1. サンプルのダウンロード
 
 ```
 git clone git@github.com:yasu-s/blob-dl-js-sample.git
 ```
 
-## 2. Installing packages  
+## 2. パッケージインストール  
 
 ```
 cd blob-dl-js-sample
 yarn
 ```
 
-## 3. Launch sample application  
+## 3. サンプルの起動  
 
 ```
 yarn start
 ```
 
-## 4. Execution result
+## 4. 実行結果
 
 http://localhost:3000/
 
 ![blob_dl](https://user-images.githubusercontent.com/2668146/63091929-fce14000-bf9a-11e9-95d2-8c678ad7cb2d.gif)
 
-# Sample source  
+# サンプルソース  
 
 ```html
 <!DOCTYPE html>
@@ -45,14 +45,14 @@ http://localhost:3000/
   <title>Blob Sample</title>
   <script>
     function save() {
-      // get string from text area
+      // テキストエリアより文字列を取得
       const txt = document.getElementById('txt').value;
       if (!txt) { return; }
 
-      // convert string to Blob
+      // 文字列をBlob化
       const blob = new Blob([txt], { type: 'text/plain' });
 
-      // a tag generation for download
+      // ダウンロード用のAタグ生成
       const a = document.createElement('a');
       a.href =  URL.createObjectURL(blob);
       a.download = 'sample.txt';
